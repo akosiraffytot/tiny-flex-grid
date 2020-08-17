@@ -1,0 +1,172 @@
+// Variables
+// ------------------------- //
+
+// Base unit used for gutters
+$base: 10px;
+
+// Screen Sizes
+$screen-xs: 360px;
+$screen-sm: 480px;
+$screen-md: 768px;
+$screen-lg: 960px;
+$screen-xl: 1200px;
+
+
+// Mixins
+// ------------------------- //
+
+@mixin full-screen {
+	flex: 100%;
+	max-width: 100%;
+}
+
+
+// Flex Grid
+// ------------------------- //
+
+.grid {
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 ($base * -1);
+	
+	// remove gutters
+	&.nogutter {
+		margin: 0;
+
+		& > .col {
+			padding: 0;
+		}
+	}
+}
+
+.col {
+	box-sizing: border-box;
+	flex: 0 0 auto;
+	flex-grow: 1;
+	flex-basis: 0;
+	max-width: 100%;
+	min-width: 0;
+	padding: 0 ($base);
+}
+
+
+// Column modifiers
+// ------------------------- //
+
+// Column vertical alignment
+.col-align--top {
+	align-self: flex-start;
+}
+
+.col-align--bottom {
+	align-self: flex-end;
+}
+
+.col-align--middle {
+	align-self: center;
+}
+
+// Column content alignment
+.col--top {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.col--bottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.col--middle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+// Grid horizontal alignment
+.grid--start {
+	justify-content: flex-start;
+}
+
+.grid--bottom {
+	justify-content: flex-end;
+}
+
+.grid--middle {
+	justify-content: center;
+}
+
+// Grid space distribution
+.grid--between {
+	justify-content: space-between;
+}
+
+.grid--around {
+	justify-content: space-around;
+}
+
+.grid--evenly {
+	justify-content: space-evenly;
+}
+
+
+// Column sizing
+// ------------------------- //
+
+// Fixed column
+.col-fixed {
+	flex: initial;
+}
+
+// Grow based columns
+@for $i from 2 through 11 {
+  .col-grow-#{$i} {
+    flex-grow: $i;
+  }
+}
+
+// Percentage based columns
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex-basis: (100% / 12) * $i;
+    max-width: (100% / 12) * $i;
+  }
+}
+
+// Media Queries
+// ------------------------- //
+
+@media only screen and (max-width: $screen-xs) {
+	.col-xs {
+		@include full-screen();
+	}
+}
+
+@media only screen and (max-width: $screen-sm) {
+	.col-sm {
+		@include full-screen();
+	}
+}
+
+@media only screen and (max-width: $screen-md) {
+	.col-md {
+		@include full-screen();
+	}
+}
+
+@media only screen and (max-width: $screen-lg) {
+	.col-lg {
+		@include full-screen();
+	}
+}
+
+@media only screen and (max-width: $screen-xl) {
+	.col-xl {
+		@include full-screen();
+	}
+}
