@@ -1,4 +1,4 @@
-.grid {
+.flexgrid {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -16,11 +16,11 @@
   margin: 0 -10px;
 }
 
-.grid.nogutter {
+.flexgrid.nogutter {
   margin: 0;
 }
 
-.grid.nogutter > .col {
+.flexgrid.nogutter > .col {
   padding: 0;
 }
 

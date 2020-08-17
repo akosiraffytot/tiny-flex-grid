@@ -1,4 +1,4 @@
-.grid {
+.flexgrid {
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
@@ -7,11 +7,11 @@
   margin: 0 -10px;
 }
 
-.grid.nogutter {
+.flexgrid.nogutter {
   margin: 0;
 }
 
-.grid.nogutter > .col {
+.flexgrid.nogutter > .col {
   padding: 0;
 }
 
